@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "buch"
+  "defaultProject": "buch",
+  "cli": {
+    "analytics": "656ebe60-04d4-4af4-8b49-8a37df2f7cec"
+  }
 }
