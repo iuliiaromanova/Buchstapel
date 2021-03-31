@@ -14,4 +14,9 @@ export class BackendService {
   getAll(): Observable<Data[]>{
     return this.http.get<Data[]>(this.baseUrl);
   }
+
+  getDataById(dataId: number): Observable<Data> {
+    return this.http
+      .get<Data>(this.baseUrl + '/' + dataId);
+  }
 }

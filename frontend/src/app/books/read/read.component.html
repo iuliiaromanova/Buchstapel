@@ -36,6 +36,20 @@
 </div>
 <div *ngIf="selectedId > 0" class="container">
   <h1>{{ selectedId }}</h1>
+  <div *ngIf="error">
+    <p>{{ error?.message }}</p>
+    <p>{{ error?.status }}</p>
+  </div>
+  <div *ngIf="book">
+    <p>{{book?.foto}}</p>
+    <p>{{book?.titel}}</p>
+    <p>{{book?.autor}}</p>
+    <p>{{book?.kurzbeschreibung}}</p>
+    <p>{{book?.seiten}}</p>
+    <p>{{book?.monat}}</p>
+    <p>{{book?.jahr}}</p>
+  </div>
+
   <p><a [routerLink]="['/read']">Zurück zur Tabelle</a></p>
 </div>
 
