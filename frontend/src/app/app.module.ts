@@ -10,6 +10,9 @@ import { DeleteComponent } from './books/delete/delete.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxBootstrapIconsModule } from 'ngx-bootstrap-icons';
 import { allIcons } from 'ngx-bootstrap-icons';
+import { FormComponent } from './books/read/form/form.component';
+import {ReactiveFormsModule} from "@angular/forms";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 //const icons = {
 //  pencilSquare
@@ -21,14 +24,16 @@ import { allIcons } from 'ngx-bootstrap-icons';
     CreateComponent,
     ReadComponent,
     UpdateComponent,
-    DeleteComponent
+    DeleteComponent,
+    FormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    NgxBootstrapIconsModule.pick(allIcons)
-
+    NgxBootstrapIconsModule.pick(allIcons),
+    ReactiveFormsModule,
+    NgbModule
   ],
   providers: [],
   bootstrap: [AppComponent]
