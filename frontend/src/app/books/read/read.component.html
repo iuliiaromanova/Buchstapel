@@ -1,1 +1,45 @@
 <p>read works!</p>
+<div *ngIf="selectedId == 0" class="container">
+
+  <table class="table table-striped table-hover">
+      <caption>List of Books</caption>
+      <thead>
+        <tr>
+          <th>Nr.</th>
+          <th>Titel</th>
+          <th>Autor</th>
+          <th>Seiten</th>
+          <th>Monat</th>
+          <th>Jahr</th>
+          <th>Edit</th>
+        </tr>
+      </thead>
+
+     <tbody>
+      <tr *ngFor="let book of books; let i=index; trackBy: trackByData">
+        <td>{{ i+1 }}</td>
+        <td>{{book.titel}}</td>
+        <td>{{book.autor}}</td>
+        <td>{{book.seiten}}</td>
+        <td>{{book.monat}}</td>
+        <td>{{book.jahr}}</td>
+        <td><a [routerLink]="['/read/', book.buch_id]">
+          <i-bs
+          name="pencil-square"
+          class="text-secondary"
+          width="1em"
+          height="1em">
+       </i-bs></a></td>
+     </tr>
+   </tbody>
+   </table>
+</div>
+<div *ngIf="selectedId > 0" class="container">
+  <h1>{{ selectedId }}</h1>
+  <p><a [routerLink]="['/read']">Zurück zur Tabelle</a></p>
+</div>
+
+
+<<!--ul class="list-group" *ngFor="let book of books">
+  <li>{{book.foto}} {{book.titel}} {{book.autor}} {{book.seiten}} {{book.kurzbeschreibung}} {{book.monat}} {{book.jahr}}</li>
+</ul>-->

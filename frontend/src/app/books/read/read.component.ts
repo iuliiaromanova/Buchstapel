@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BackendService } from '../../shared/backend.service';
 import { Data } from '../../shared/data';
+import {ActivatedRoute} from '@angular/router';
+
 
 @Component({
   selector: 'app-read',
@@ -9,13 +11,22 @@ import { Data } from '../../shared/data';
 })
 export class ReadComponent implements OnInit {
     books: Data[];
+    selectedId: number;
 
-
-  constructor(private cs: BackendService) { }
+  constructor(private cs: BackendService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.readAll();
+    this.selectedId = Number(this.route.snapshot.paramMap.get('id'));
+    if (this.selectedId === 0) {
+      this.readAll();
+    }
+    else {
+      console.log('id = ' + this.selectedId);
+    }
   }
+
+    trackByData(index: number, data: Data): number { return data.buch_id; }
+
 
   readAll(): void {
         this.cs.getAll().subscribe(
