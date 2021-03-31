@@ -1,0 +1,58 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+
+    <div class="form-group row">
+      <div class="col-sm-10">
+        <input type="hidden" class="form-control" formControlName="buch_idControl" id="staticId" readonly>
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="inputTitel" class="col-sm-2 col-form-label">Titel</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="titelControl" id="inputTitel">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="inputAutor" class="col-sm-2 col-form-label">Autor</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="autorControl" id="inputAutor">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <label for="inputSeiten" class="col-sm-2 col-form-label">Seiten</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="seitenControl" id="inputSeiten">
+      </div>
+    </div>
+
+     <div class="form-group row">
+      <label for="inputKurzbeschreibung" class="col-sm-2 col-form-label">Kurzbeschreibung</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="kurzbeschreibungControl" id="inputKurzbeschreibung">
+      </div>
+    </div>
+
+     <div class="form-group row">
+      <label for="inputMonat" class="col-sm-2 col-form-label">Monat</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="monatControl" id="inputMonat">
+      </div>
+    </div>
+
+   <div class="form-group row">
+      <label for="inputJahr" class="col-sm-2 col-form-label">Jahr</label>
+      <div class="col-sm-10">
+        <input type="text" class="form-control" formControlName="jahrControl" id="inputJahr">
+      </div>
+    </div>
+
+    <div class="form-group row">
+      <div class="col-sm-6">
+        <button type="submit" class="btn btn-primary btn-block" [disabled]="!form.valid">Update</button>
+      </div>
+      <div class="col-sm-6">
+        <button type="cancel" class="btn btn-secondary btn-block" (click)="cancel()">Cancel</button>      </div>
+    </div>
+  </form>

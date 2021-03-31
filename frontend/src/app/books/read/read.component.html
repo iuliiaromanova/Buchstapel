@@ -18,12 +18,12 @@
      <tbody>
       <tr *ngFor="let book of books; let i=index; trackBy: trackByData">
         <td>{{ i+1 }}</td>
-        <td>{{book.titel}}</td>
+        <td> <a [routerLink]="['/read/', book.buch_id]">{{book.titel}}</a></td>
         <td>{{book.autor}}</td>
         <td>{{book.seiten}}</td>
         <td>{{book.monat}}</td>
         <td>{{book.jahr}}</td>
-        <td><a [routerLink]="['/read/', book.buch_id]">
+        <td><a [routerLink]="['/update/', book.buch_id]">
           <i-bs
           name="pencil-square"
           class="text-secondary"
@@ -42,27 +42,26 @@
    </table>
 </div>
 <div *ngIf="selectedId > 0" class="container">
-  <h1>{{ selectedId }}</h1>
+  <h1>{{ book?.titel }}</h1>
   <div *ngIf="error">
     <p>{{ error?.message }}</p>
     <p>{{ error?.status }}</p>
   </div>
   <div *ngIf="book">
     <p>{{book?.foto}}</p>
-    <p>{{book?.titel}}</p>
     <p>{{book?.autor}}</p>
     <p>{{book?.kurzbeschreibung}}</p>
-    <p>{{book?.seiten}}</p>
-    <p>{{book?.monat}}</p>
+    <p> Seiten: {{book?.seiten}}</p>
+    <p> Wurde gelesen im: {{book?.monat}}</p>
     <p>{{book?.jahr}}</p>
   </div>
 
   <p><a [routerLink]="['/read']">Zurück zur Tabelle</a></p>
 </div>
 
-<div *ngIf="book">
+<!--<div *ngIf="book">
     <app-form [data]="book" (updateEvent)="update($event)"></app-form>
-  </div>
+  </div>-->
 
 <!-- modaler Dialog fuer das Loeschen -->
 

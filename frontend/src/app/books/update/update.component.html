@@ -1,3 +1,20 @@
-<p>update works!</p>
-<p>id={{ selectedId }}</p>
+
+<div *ngIf="selectedId > 0" class="container">
+  <h4>Update the book</h4>
+  <div *ngIf="error">
+    <p>{{ error?.message }}</p>
+    <p>{{ error?.status }}</p>
+  </div>
+</div>
+
+<div *ngIf="book" class="container">
+    <app-form [data]="book" (updateEvent)="update($event)"></app-form>
+  </div>
+
+  <p><a [routerLink]="['/read']">Zurück zur Tabelle</a></p>
+
+
+
+
+
 
